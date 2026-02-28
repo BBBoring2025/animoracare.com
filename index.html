@@ -6,6 +6,24 @@
   <title>Animora — Kamera Yok. Mahremiyet Var. Anneniz Güvende.</title>
   <meta name="description" content="Animora: Görünmez sensörler ve Edge AI ile yaşlı ebeveynlerinizi kamerasız, giyilebilir cihazsız izleyin. Gizlilik öncelikli yaşlı bakım teknolojisi.">
   
+  <!-- Canonical & Theme -->
+  <link rel="canonical" href="https://animoracare.com/">
+  <meta name="theme-color" content="#0B3D3E">
+  
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://animoracare.com/">
+  <meta property="og:title" content="Animora — Kamera Yok. Mahremiyet Var. Anneniz Güvende.">
+  <meta property="og:description" content="Görünmez sensörler ve Edge AI ile yaşlı ebeveynlerinizi kamerasız izleyin. Gizlilik öncelikli yaşlı bakım teknolojisi.">
+  <meta property="og:image" content="https://animoracare.com/og-image.png">
+  <meta property="og:locale" content="tr_TR">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Animora — Kamera Yok. Mahremiyet Var.">
+  <meta name="twitter:description" content="Görünmez sensörler ve Edge AI ile yaşlı ebeveynlerinizi kamerasız izleyin.">
+  <meta name="twitter:image" content="https://animoracare.com/og-image.png">
+  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -1102,6 +1120,14 @@
       resize: vertical;
       min-height: 120px;
     }
+    select.form-input {
+      appearance: none;
+      -webkit-appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236B7B7C' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      padding-right: 36px;
+    }
     .form-submit {
       align-self: flex-start;
       background: var(--teal-700);
@@ -1214,7 +1240,7 @@
   <!-- ═══════════ NAVIGATION ═══════════ -->
   <nav class="nav" id="nav">
     <div class="nav-inner">
-      <a href="#" class="nav-logo">
+      <a href="#hero" class="nav-logo">
         <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M18 3C10 3 4 10 4 17.5C4 25 10 33 18 33C26 33 32 25 32 17.5C32 10 26 3 18 3Z" fill="#127275" opacity="0.15"/>
           <path d="M18 6L8 14V27C8 28.1 8.9 29 10 29H26C27.1 29 28 28.1 28 27V14L18 6Z" stroke="#127275" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
@@ -1339,7 +1365,7 @@
       </div>
       <div class="trust-item">
         <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        KVKK & GDPR Uyumlu
+        KVKK & GDPR Odaklı Tasarım
       </div>
       <div class="trust-item">
         <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
@@ -1395,7 +1421,8 @@
           <div class="problem-stat-big">1.4B</div>
           <div class="problem-stat-overlay">
             <h3>1.4 Milyar</h3>
-            <p>2030'da 60+ yaş dünya nüfusu<br><strong style="color:var(--coral-500)">%60'ı yalnız yaşıyor</strong></p>
+            <p>2030 tahmini 60+ yaş dünya nüfusu*<br><strong style="color:var(--coral-500)">Büyük çoğunluğu yalnız yaşıyor</strong></p>
+            <p style="font-size:0.7rem;color:var(--gray-300);margin-top:8px;">*UN World Population Prospects, WHO Global Report on Ageing</p>
           </div>
         </div>
       </div>
@@ -1523,7 +1550,7 @@
         <div>
           <span class="section-label">Teknoloji</span>
           <h2 class="section-title">Üretime hazır altyapı</h2>
-          <p class="section-desc" style="margin-bottom:32px">Konsept değil, çalışan ürün. 313 otomatik test, Docker dağıtımı, dış denetimde 90+/100 puan.</p>
+          <p class="section-desc" style="margin-bottom:32px">Konsept değil, çalışan ürün. 313 otomatik test, Docker dağıtımı, bağımsız kod kalite analizlerinde yüksek puanlar.</p>
           <p style="font-size:0.92rem; color:var(--gray-500); line-height:1.8;">
             Tüm veri işleme evinizde, Raspberry Pi üzerinde gerçekleşir. Buluta sadece anonim alarm bildirimleri gönderilir. 
             Ham sensör verileri asla evinizden çıkmaz — bu KVKK ve GDPR uyumluluğunu tasarımdan itibaren garanti eder.
@@ -1613,7 +1640,7 @@
               30 dakika uzaktan kurulum desteği
             </li>
           </ul>
-          <button class="price-btn">Ön Sipariş Ver</button>
+          <a href="#iletisim" class="price-btn" style="display:block;text-align:center;">Ön Sipariş Ver</a>
         </div>
         
         <div class="price-card featured">
@@ -1651,7 +1678,7 @@
               Otomatik yazılım güncellemeleri
             </li>
           </ul>
-          <button class="price-btn filled">Pilot Programa Katıl</button>
+          <a href="#iletisim" class="price-btn filled" style="display:block;text-align:center;">Pilot Programa Katıl</a>
         </div>
       </div>
     </div>
@@ -1707,9 +1734,9 @@
   <!-- ═══════════ CONTACT ═══════════ -->
   <section class="section contact" id="iletisim">
     <div class="container">
-      <span class="section-label">İletişim</span>
-      <h2 class="section-title">Bizimle konuşun</h2>
-      <p class="section-desc">Sorularınız, pilot program başvurunuz veya iş birliği teklifleriniz için bize ulaşın.</p>
+      <span class="section-label">Pilot Başvurusu</span>
+      <h2 class="section-title">Pilot programa katılın</h2>
+      <p class="section-desc">İlk 50 hane arasında yerinizi ayırtın. Sorularınız veya iş birliği teklifleriniz için de bize ulaşabilirsiniz.</p>
       
       <div class="contact-grid">
         <div class="contact-info">
@@ -1724,7 +1751,7 @@
             <div class="contact-icon">💬</div>
             <div>
               <h4>Telegram</h4>
-              <a href="https://t.me/animoracare" target="_blank">@animoracare</a>
+              <a href="https://t.me/animoracare" target="_blank" rel="noopener noreferrer">@animoracare</a>
             </div>
           </div>
           <div class="contact-item">
@@ -1743,14 +1770,41 @@
           </div>
         </div>
         
-        <form class="contact-form" onsubmit="handleSubmit(event)">
+        <form class="contact-form" action="https://api.web3forms.com/submit" method="POST" id="contactForm">
+          <!-- Web3Forms Access Key — animoracare.com için web3forms.com'dan ücretsiz al -->
+          <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+          <input type="hidden" name="subject" value="Animora Pilot Başvurusu">
+          <input type="hidden" name="from_name" value="Animora Landing Page">
+          <!-- Honeypot anti-spam -->
+          <input type="checkbox" name="botcheck" style="display:none;">
+          
           <div class="form-row">
-            <input type="text" class="form-input" placeholder="Adınız" required>
-            <input type="email" class="form-input" placeholder="E-posta adresiniz" required>
+            <input type="text" name="name" class="form-input" placeholder="Adınız Soyadınız" required autocomplete="name">
+            <input type="email" name="email" class="form-input" placeholder="E-posta adresiniz" required autocomplete="email">
           </div>
-          <input type="text" class="form-input" placeholder="Konu">
-          <textarea class="form-input form-textarea" placeholder="Mesajınız..." required></textarea>
-          <button type="submit" class="form-submit">Gönder</button>
+          <div class="form-row">
+            <input type="tel" name="phone" class="form-input" placeholder="Telefon (isteğe bağlı)" autocomplete="tel">
+            <input type="text" name="city" class="form-input" placeholder="Şehir / Ülke" autocomplete="address-level2">
+          </div>
+          <div class="form-row">
+            <select name="living_situation" class="form-input" style="color:var(--gray-500);">
+              <option value="" disabled selected>Ebeveyn durumu</option>
+              <option value="alone">Yalnız yaşıyor</option>
+              <option value="with_spouse">Eşiyle birlikte</option>
+              <option value="with_family">Aile ile birlikte</option>
+              <option value="other">Diğer</option>
+            </select>
+            <select name="pet" class="form-input" style="color:var(--gray-500);">
+              <option value="" disabled selected>Evde evcil hayvan?</option>
+              <option value="no">Hayır</option>
+              <option value="cat">Kedi</option>
+              <option value="dog">Köpek</option>
+              <option value="both">Her ikisi</option>
+            </select>
+          </div>
+          <textarea name="message" class="form-input form-textarea" placeholder="Mesajınız veya sorularınız (isteğe bağlı)"></textarea>
+          <button type="submit" class="form-submit" id="submitBtn">Pilot Başvurusu Gönder</button>
+          <p id="formResult" style="font-size:0.85rem;margin-top:8px;display:none;"></p>
         </form>
       </div>
     </div>
@@ -1790,14 +1844,15 @@
     }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
     animElements.forEach(el => observer.observe(el));
 
-    // Smooth scroll for anchor links
+    // Smooth scroll for anchor links (skip bare "#")
     document.querySelectorAll('a[href^="#"]').forEach(link => {
       link.addEventListener('click', e => {
+        const href = link.getAttribute('href');
+        if (!href || href === '#') return;
         e.preventDefault();
-        const target = document.querySelector(link.getAttribute('href'));
+        const target = document.querySelector(href);
         if (target) {
           target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          // Close mobile menu if open
           document.querySelector('.nav-links')?.classList.remove('mobile-open');
         }
       });
@@ -1807,16 +1862,52 @@
     const videoPlaceholder = document.getElementById('videoPlaceholder');
     if (videoPlaceholder) {
       videoPlaceholder.addEventListener('click', () => {
-        // Replace with actual video embed URL
-        alert('Video URL buraya eklenecek.\n\nÖrnek: YouTube veya Vimeo embed linkinizi ekleyin.');
+        // TODO: Replace with actual YouTube/Vimeo embed
+        // Example: const iframe = document.createElement('iframe');
+        // iframe.src = 'https://www.youtube-nocookie.com/embed/VIDEO_ID?autoplay=1';
+        // videoPlaceholder.parentElement.appendChild(iframe);
+        // videoPlaceholder.style.display = 'none';
+        alert('Video yakında eklenecek!');
       });
     }
 
-    // Form handler
-    function handleSubmit(e) {
-      e.preventDefault();
-      alert('Teşekkürler! Mesajınız alındı. En kısa sürede dönüş yapacağız.');
-      e.target.reset();
+    // Web3Forms AJAX submit
+    const form = document.getElementById('contactForm');
+    const resultEl = document.getElementById('formResult');
+    const submitBtn = document.getElementById('submitBtn');
+    
+    if (form) {
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Gönderiliyor...';
+        resultEl.style.display = 'none';
+        
+        try {
+          const formData = new FormData(form);
+          const res = await fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            body: formData,
+          });
+          const data = await res.json();
+          
+          if (data.success) {
+            resultEl.textContent = 'Başvurunuz alındı! En kısa sürede dönüş yapacağız.';
+            resultEl.style.color = 'var(--teal-600)';
+            resultEl.style.display = 'block';
+            form.reset();
+          } else {
+            throw new Error(data.message || 'Bir hata oluştu');
+          }
+        } catch (err) {
+          resultEl.textContent = 'Gönderim başarısız. Lütfen hello@animoracare.com adresine mail atın.';
+          resultEl.style.color = 'var(--coral-500)';
+          resultEl.style.display = 'block';
+        } finally {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Pilot Başvurusu Gönder';
+        }
+      });
     }
 
     // Mobile menu styles (injected)
