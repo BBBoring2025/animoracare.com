@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Animora — Kamera Yok. Mahremiyet Var. Anneniz Güvende.</title>
-  <meta name="description" content="Animora: Görünmez sensörler ve Edge AI ile yaşlı ebeveynlerinizi kamerasız, giyilebilir cihazsız izleyin. Gizlilik öncelikli yaşlı bakım teknolojisi.">
+  <title>Animora — No Cameras. No Wearables. Your Parent is Safe.</title>
+  <meta name="description" content="Animora: Privacy-first elderly care powered by invisible sensors and Edge AI. Monitor your aging parent's wellbeing without cameras or wearables.">
   
   <!-- Canonical & Theme -->
   <link rel="canonical" href="https://animoracare.com/">
@@ -13,15 +13,15 @@
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://animoracare.com/">
-  <meta property="og:title" content="Animora — Kamera Yok. Mahremiyet Var. Anneniz Güvende.">
-  <meta property="og:description" content="Görünmez sensörler ve Edge AI ile yaşlı ebeveynlerinizi kamerasız izleyin. Gizlilik öncelikli yaşlı bakım teknolojisi.">
+  <meta property="og:title" content="Animora — No Cameras. No Wearables. Your Parent is Safe.">
+  <meta property="og:description" content="Privacy-first elderly care with invisible sensors and Edge AI. No cameras, no wearables — just peace of mind.">
   <meta property="og:image" content="https://animoracare.com/og-image.png">
-  <meta property="og:locale" content="tr_TR">
+  <meta property="og:locale" content="en_US">
   
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Animora — Kamera Yok. Mahremiyet Var.">
-  <meta name="twitter:description" content="Görünmez sensörler ve Edge AI ile yaşlı ebeveynlerinizi kamerasız izleyin.">
+  <meta name="twitter:title" content="Animora — No Cameras. No Wearables. Peace of Mind.">
+  <meta name="twitter:description" content="Privacy-first elderly care with invisible sensors and Edge AI.">
   <meta name="twitter:image" content="https://animoracare.com/og-image.png">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,9 +29,6 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   
   <style>
-    /* ═══════════════════════════════════════════
-       CSS VARIABLES & RESET
-    ═══════════════════════════════════════════ */
     :root {
       --teal-900: #0B3D3E;
       --teal-800: #0E4F51;
@@ -80,9 +77,7 @@
     }
     
     *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
-    
     html { scroll-behavior: smooth; font-size: 16px; }
-    
     body {
       font-family: var(--font-body);
       color: var(--gray-800);
@@ -91,19 +86,11 @@
       overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
     }
-    
     img { max-width:100%; display:block; }
     a { text-decoration:none; color:inherit; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
     
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-    
-    /* ═══════════════════════════════════════════
-       ANIMATIONS
-    ═══════════════════════════════════════════ */
+    /* Animations */
     @keyframes fadeUp {
       from { opacity:0; transform:translateY(30px); }
       to { opacity:1; transform:translateY(0); }
@@ -112,17 +99,9 @@
       from { opacity:0; }
       to { opacity:1; }
     }
-    @keyframes slideLeft {
-      from { opacity:0; transform:translateX(40px); }
-      to { opacity:1; transform:translateX(0); }
-    }
     @keyframes pulse-gentle {
       0%, 100% { transform: scale(1); opacity: 0.7; }
       50% { transform: scale(1.15); opacity: 1; }
-    }
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-8px); }
     }
     @keyframes grain {
       0%, 100% { transform: translate(0,0); }
@@ -135,1098 +114,395 @@
     
     .anim-fadeup { opacity:0; transform:translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
     .anim-fadeup.visible { opacity:1; transform:translateY(0); }
-    
     .anim-slideleft { opacity:0; transform:translateX(40px); transition: opacity 0.7s ease, transform 0.7s ease; }
     .anim-slideleft.visible { opacity:1; transform:translateX(0); }
 
-    /* ═══════════════════════════════════════════
-       NAVIGATION
-    ═══════════════════════════════════════════ */
+    /* ═══ NAVIGATION ═══ */
     .nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 1000;
-      padding: 16px 0;
-      transition: all 0.4s ease;
-      background: transparent;
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      padding: 16px 0; transition: all 0.4s; background: transparent;
     }
     .nav.scrolled {
       background: rgba(255,252,249,0.92);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      padding: 10px 0;
-      box-shadow: 0 1px 20px rgba(11,61,62,0.06);
+      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      padding: 10px 0; box-shadow: 0 1px 20px rgba(11,61,62,0.06);
     }
     .nav-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 24px;
+      display: flex; align-items: center; justify-content: space-between;
+      max-width: 1200px; margin: 0 auto; padding: 0 24px;
     }
     .nav-logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-family: var(--font-display);
-      font-size: 1.5rem;
-      color: var(--teal-800);
+      display: flex; align-items: center; gap: 10px;
+      font-family: var(--font-display); font-size: 1.5rem; color: var(--teal-800);
     }
     .nav-logo svg { width: 36px; height: 36px; }
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 32px;
-      list-style: none;
-    }
+    .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
     .nav-links a {
-      font-size: 0.9rem;
-      font-weight: 500;
-      color: var(--gray-700);
-      transition: color 0.3s;
-      position: relative;
+      font-size: 0.9rem; font-weight: 500; color: var(--gray-700);
+      transition: color 0.3s; position: relative;
     }
     .nav-links a:hover { color: var(--teal-600); }
     .nav-links a::after {
-      content: '';
-      position: absolute;
-      bottom: -4px; left: 0;
-      width: 0; height: 2px;
-      background: var(--teal-500);
-      transition: width 0.3s;
+      content: ''; position: absolute; bottom: -4px; left: 0;
+      width: 0; height: 2px; background: var(--teal-500); transition: width 0.3s;
     }
     .nav-links a:hover::after { width: 100%; }
-    
     .nav-cta {
-      background: var(--teal-700);
-      color: white !important;
-      padding: 10px 24px;
-      border-radius: 100px;
-      font-weight: 600;
-      font-size: 0.88rem;
-      transition: all 0.3s;
+      background: var(--teal-700); color: white !important;
+      padding: 10px 24px; border-radius: 100px;
+      font-weight: 600; font-size: 0.88rem; transition: all 0.3s;
       box-shadow: 0 2px 12px rgba(18,114,117,0.3);
     }
-    .nav-cta:hover {
-      background: var(--teal-600);
-      transform: translateY(-1px);
-      box-shadow: 0 4px 20px rgba(18,114,117,0.4);
-    }
+    .nav-cta:hover { background: var(--teal-600); transform: translateY(-1px); }
     .nav-cta::after { display:none !important; }
-    
-    .mobile-toggle {
-      display: none;
-      background: none; border: none;
-      cursor: pointer;
-      padding: 8px;
-    }
-    .mobile-toggle span {
-      display: block;
-      width: 24px; height: 2px;
-      background: var(--teal-800);
-      margin: 6px 0;
-      transition: 0.3s;
-    }
+    .mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+    .mobile-toggle span { display: block; width: 24px; height: 2px; background: var(--teal-800); margin: 6px 0; transition: 0.3s; }
 
-    /* ═══════════════════════════════════════════
-       HERO SECTION
-    ═══════════════════════════════════════════ */
+    /* ═══ HERO ═══ */
     .hero {
-      position: relative;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      overflow: hidden;
+      position: relative; min-height: 100vh; display: flex; align-items: center; overflow: hidden;
       background: linear-gradient(165deg, var(--teal-900) 0%, var(--teal-800) 40%, #0A4244 100%);
     }
     .hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
+      content: ''; position: absolute; inset: 0;
       background: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
-      animation: grain 8s steps(10) infinite;
-      pointer-events: none;
-      opacity: 0.5;
+      animation: grain 8s steps(10) infinite; pointer-events: none; opacity: 0.5;
     }
-    /* Decorative circles */
-    .hero-circle {
-      position: absolute;
-      border-radius: 50%;
-      border: 1px solid rgba(26,180,184,0.1);
-    }
+    .hero-circle { position: absolute; border-radius: 50%; border: 1px solid rgba(26,180,184,0.1); }
     .hero-circle-1 { width:600px; height:600px; top:-200px; right:-100px; }
     .hero-circle-2 { width:400px; height:400px; bottom:-100px; left:-80px; }
     .hero-circle-3 { width:200px; height:200px; top:30%; left:15%; border-color:rgba(232,97,77,0.08); }
-    
     .hero-content {
-      position: relative;
-      z-index: 2;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 140px 24px 100px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: center;
+      position: relative; z-index: 2; max-width: 1200px; margin: 0 auto;
+      padding: 140px 24px 100px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
     }
     .hero-text { animation: fadeUp 0.8s ease forwards; }
-    
     .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(26,180,184,0.12);
-      border: 1px solid rgba(26,180,184,0.2);
-      padding: 6px 16px;
-      border-radius: 100px;
-      font-size: 0.82rem;
-      font-weight: 600;
-      color: var(--teal-300);
-      margin-bottom: 24px;
-      letter-spacing: 0.5px;
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(26,180,184,0.12); border: 1px solid rgba(26,180,184,0.2);
+      padding: 6px 16px; border-radius: 100px;
+      font-size: 0.82rem; font-weight: 600; color: var(--teal-300);
+      margin-bottom: 24px; letter-spacing: 0.5px;
     }
-    .hero-badge-dot {
-      width: 8px; height: 8px;
-      border-radius: 50%;
-      background: var(--teal-400);
-      animation: pulse-gentle 2s ease infinite;
-    }
-    
-    .hero h1 {
-      font-family: var(--font-display);
-      font-size: 3.6rem;
-      line-height: 1.15;
-      color: white;
-      margin-bottom: 20px;
-    }
-    .hero h1 em {
-      font-style: italic;
-      color: var(--teal-300);
-    }
-    
-    .hero-sub {
-      font-size: 1.15rem;
-      color: rgba(255,255,255,0.7);
-      line-height: 1.8;
-      margin-bottom: 36px;
-      max-width: 520px;
-    }
-    
-    .hero-actions {
-      display: flex;
-      gap: 16px;
-      align-items: center;
-      flex-wrap: wrap;
-    }
+    .hero-badge-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--teal-400); animation: pulse-gentle 2s ease infinite; }
+    .hero h1 { font-family: var(--font-display); font-size: 3.6rem; line-height: 1.15; color: white; margin-bottom: 20px; }
+    .hero h1 em { font-style: italic; color: var(--teal-300); }
+    .hero-sub { font-size: 1.15rem; color: rgba(255,255,255,0.7); line-height: 1.8; margin-bottom: 36px; max-width: 520px; }
+    .hero-actions { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
     .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--coral-500);
-      color: white;
-      padding: 16px 36px;
-      border-radius: 100px;
-      font-weight: 700;
-      font-size: 1rem;
-      transition: all 0.3s;
-      box-shadow: 0 4px 24px rgba(232,97,77,0.35);
-      border: none;
-      cursor: pointer;
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--coral-500); color: white; padding: 16px 36px; border-radius: 100px;
+      font-weight: 700; font-size: 1rem; transition: all 0.3s;
+      box-shadow: 0 4px 24px rgba(232,97,77,0.35); border: none; cursor: pointer;
     }
-    .btn-primary:hover {
-      background: var(--coral-400);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 32px rgba(232,97,77,0.45);
-    }
+    .btn-primary:hover { background: var(--coral-400); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(232,97,77,0.45); }
     .btn-secondary {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      color: rgba(255,255,255,0.85);
-      padding: 16px 28px;
-      border-radius: 100px;
-      font-weight: 600;
-      font-size: 0.95rem;
-      transition: all 0.3s;
+      display: inline-flex; align-items: center; gap: 8px;
+      color: rgba(255,255,255,0.85); padding: 16px 28px; border-radius: 100px;
+      font-weight: 600; font-size: 0.95rem; transition: all 0.3s;
       border: 1px solid rgba(255,255,255,0.2);
     }
-    .btn-secondary:hover {
-      border-color: rgba(255,255,255,0.4);
-      color: white;
-      background: rgba(255,255,255,0.05);
-    }
-    
-    .hero-stats {
-      display: flex;
-      gap: 40px;
-      margin-top: 48px;
-      padding-top: 32px;
-      border-top: 1px solid rgba(255,255,255,0.1);
-    }
-    .hero-stat-num {
-      font-family: var(--font-display);
-      font-size: 2rem;
-      color: var(--teal-300);
-    }
-    .hero-stat-label {
-      font-size: 0.82rem;
-      color: rgba(255,255,255,0.5);
-      margin-top: 2px;
-    }
-    
-    /* Hero Visual — Floor Plan */
-    .hero-visual {
-      position: relative;
-      animation: fadeIn 1s ease 0.3s forwards;
-      opacity: 0;
-    }
+    .btn-secondary:hover { border-color: rgba(255,255,255,0.4); color: white; background: rgba(255,255,255,0.05); }
+    .hero-stats { display: flex; gap: 40px; margin-top: 48px; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.1); }
+    .hero-stat-num { font-family: var(--font-display); font-size: 2rem; color: var(--teal-300); }
+    .hero-stat-label { font-size: 0.82rem; color: rgba(255,255,255,0.5); margin-top: 2px; }
+    .hero-visual { position: relative; animation: fadeIn 1s ease 0.3s forwards; opacity: 0; }
     .floor-plan-card {
-      background: rgba(255,255,255,0.06);
-      backdrop-filter: blur(20px);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: var(--radius-lg);
-      padding: 32px;
-      position: relative;
+      background: rgba(255,255,255,0.06); backdrop-filter: blur(20px);
+      border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius-lg); padding: 32px; position: relative;
     }
     .floor-plan-svg { width:100%; }
-    
-    /* Sensor dots on the floor plan */
     .sensor-dot {
-      position: absolute;
-      width: 14px; height: 14px;
-      border-radius: 50%;
-      background: var(--teal-400);
-      box-shadow: 0 0 20px rgba(61,212,216,0.5);
+      position: absolute; width: 14px; height: 14px; border-radius: 50%;
+      background: var(--teal-400); box-shadow: 0 0 20px rgba(61,212,216,0.5);
       animation: pulse-gentle 2.5s ease infinite;
     }
     .sensor-dot::after {
-      content: '';
-      position: absolute;
-      inset: -6px;
-      border-radius: 50%;
-      border: 1px solid rgba(61,212,216,0.3);
-      animation: pulse-gentle 2.5s ease infinite 0.5s;
+      content: ''; position: absolute; inset: -6px; border-radius: 50%;
+      border: 1px solid rgba(61,212,216,0.3); animation: pulse-gentle 2.5s ease infinite 0.5s;
     }
     .sd-1 { top:22%; left:25%; animation-delay: 0s; }
     .sd-2 { top:35%; right:20%; animation-delay: 0.5s; }
     .sd-3 { bottom:30%; left:30%; animation-delay: 1s; }
     .sd-4 { bottom:20%; right:35%; animation-delay: 1.5s; }
     .sd-hub {
-      position: absolute;
-      top: 50%; left: 50%;
-      transform: translate(-50%,-50%);
-      width: 24px; height: 24px;
-      border-radius: 50%;
-      background: var(--coral-500);
-      box-shadow: 0 0 30px rgba(232,97,77,0.5);
+      position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+      width: 24px; height: 24px; border-radius: 50%;
+      background: var(--coral-500); box-shadow: 0 0 30px rgba(232,97,77,0.5);
     }
-    .sd-hub::after {
-      content: 'AI';
-      position: absolute;
-      top: 50%; left: 50%;
-      transform: translate(-50%,-50%);
-      font-size: 8px;
-      font-weight: 800;
-      color: white;
-    }
-    
-    .fp-room-label {
-      position: absolute;
-      font-size: 0.7rem;
-      font-weight: 600;
-      color: rgba(255,255,255,0.4);
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
+    .sd-hub::after { content: 'AI'; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); font-size: 8px; font-weight: 800; color: white; }
+    .fp-room-label { position: absolute; font-size: 0.7rem; font-weight: 600; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 1px; }
     .fp-bedroom { top:18%; left:15%; }
     .fp-kitchen { top:18%; right:12%; }
     .fp-bathroom { bottom:22%; left:15%; }
     .fp-living { bottom:22%; right:12%; }
 
-    /* ═══════════════════════════════════════════
-       TRUST BAR
-    ═══════════════════════════════════════════ */
-    .trust-bar {
-      background: white;
-      border-bottom: 1px solid var(--gray-100);
-      padding: 28px 0;
-    }
-    .trust-inner {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 48px;
-      flex-wrap: wrap;
-    }
-    .trust-item {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--gray-500);
-    }
-    .trust-icon {
-      width: 20px; height: 20px;
-      color: var(--teal-600);
-    }
+    /* ═══ TRUST BAR ═══ */
+    .trust-bar { background: white; border-bottom: 1px solid var(--gray-100); padding: 28px 0; }
+    .trust-inner { display: flex; align-items: center; justify-content: center; gap: 48px; flex-wrap: wrap; }
+    .trust-item { display: flex; align-items: center; gap: 10px; font-size: 0.85rem; font-weight: 600; color: var(--gray-500); }
+    .trust-icon { width: 20px; height: 20px; color: var(--teal-600); }
 
-    /* ═══════════════════════════════════════════
-       SECTION COMMON
-    ═══════════════════════════════════════════ */
+    /* ═══ SECTIONS COMMON ═══ */
     .section { padding: 100px 0; }
     .section-label {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 0.78rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      color: var(--teal-600);
-      margin-bottom: 16px;
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 0.78rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 2px; color: var(--teal-600); margin-bottom: 16px;
     }
-    .section-label::before {
-      content: '';
-      width: 24px; height: 2px;
-      background: var(--teal-500);
-    }
-    .section-title {
-      font-family: var(--font-display);
-      font-size: 2.8rem;
-      line-height: 1.2;
-      color: var(--teal-900);
-      margin-bottom: 16px;
-    }
-    .section-desc {
-      font-size: 1.1rem;
-      color: var(--gray-500);
-      max-width: 600px;
-      line-height: 1.8;
-    }
+    .section-label::before { content: ''; width: 24px; height: 2px; background: var(--teal-500); }
+    .section-title { font-family: var(--font-display); font-size: 2.8rem; line-height: 1.2; color: var(--teal-900); margin-bottom: 16px; }
+    .section-desc { font-size: 1.1rem; color: var(--gray-500); max-width: 600px; line-height: 1.8; }
 
-    /* ═══════════════════════════════════════════
-       PROBLEM SECTION
-    ═══════════════════════════════════════════ */
-    .problem {
-      background: white;
-    }
-    .problem-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: center;
-      margin-top: 60px;
-    }
-    .problem-cards {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
+    /* ═══ PROBLEM ═══ */
+    .problem { background: white; }
+    .problem-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; margin-top: 60px; }
+    .problem-cards { display: flex; flex-direction: column; gap: 20px; }
     .problem-card {
-      display: flex;
-      gap: 20px;
-      padding: 24px;
-      border-radius: var(--radius-md);
-      border: 1px solid var(--gray-100);
-      transition: all 0.3s;
-      background: var(--warm-50);
+      display: flex; gap: 20px; padding: 24px; border-radius: var(--radius-md);
+      border: 1px solid var(--gray-100); transition: all 0.3s; background: var(--warm-50);
     }
-    .problem-card:hover {
-      border-color: var(--coral-200);
-      box-shadow: var(--shadow-md);
-      transform: translateX(4px);
-    }
-    .problem-card-icon {
-      flex-shrink: 0;
-      width: 48px; height: 48px;
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.5rem;
-    }
+    .problem-card:hover { border-color: var(--coral-200); box-shadow: var(--shadow-md); transform: translateX(4px); }
+    .problem-card-icon { flex-shrink: 0; width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; }
     .problem-card-icon.red { background: var(--coral-100); }
-    .problem-card h4 {
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--gray-800);
-      margin-bottom: 4px;
-    }
-    .problem-card p {
-      font-size: 0.88rem;
-      color: var(--gray-500);
-      line-height: 1.6;
-    }
-    
-    .problem-visual {
-      position: relative;
-      text-align: center;
-    }
-    .problem-stat-big {
-      font-family: var(--font-display);
-      font-size: 8rem;
-      color: var(--coral-500);
-      line-height: 1;
-      opacity: 0.12;
-    }
-    .problem-stat-overlay {
-      position: absolute;
-      top: 50%; left: 50%;
-      transform: translate(-50%,-50%);
-      text-align: center;
-    }
-    .problem-stat-overlay h3 {
-      font-family: var(--font-display);
-      font-size: 3.5rem;
-      color: var(--teal-900);
-    }
-    .problem-stat-overlay p {
-      font-size: 1rem;
-      color: var(--gray-500);
-      margin-top: 8px;
-    }
+    .problem-card h4 { font-size: 1rem; font-weight: 700; color: var(--gray-800); margin-bottom: 4px; }
+    .problem-card p { font-size: 0.88rem; color: var(--gray-500); line-height: 1.6; }
+    .problem-visual { position: relative; text-align: center; }
+    .problem-stat-big { font-family: var(--font-display); font-size: 8rem; color: var(--coral-500); line-height: 1; opacity: 0.12; }
+    .problem-stat-overlay { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); text-align: center; }
+    .problem-stat-overlay h3 { font-family: var(--font-display); font-size: 3.5rem; color: var(--teal-900); }
+    .problem-stat-overlay p { font-size: 1rem; color: var(--gray-500); margin-top: 8px; }
 
-    /* ═══════════════════════════════════════════
-       SOLUTION / HOW IT WORKS
-    ═══════════════════════════════════════════ */
-    .solution {
-      background: var(--warm-50);
-      position: relative;
-    }
+    /* ═══ SOLUTION ═══ */
+    .solution { background: var(--warm-50); position: relative; }
     .solution-header { text-align:center; margin-bottom:60px; }
     .solution-header .section-desc { margin: 0 auto; }
-    
-    .steps-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 32px;
-      margin-bottom: 80px;
-    }
+    .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-bottom: 80px; }
     .step-card {
-      background: white;
-      border-radius: var(--radius-lg);
-      padding: 40px 32px;
-      position: relative;
-      border: 1px solid var(--gray-100);
-      transition: all 0.4s;
-      overflow: hidden;
+      background: white; border-radius: var(--radius-lg); padding: 40px 32px;
+      position: relative; border: 1px solid var(--gray-100); transition: all 0.4s; overflow: hidden;
     }
     .step-card::before {
-      content: '';
-      position: absolute;
-      top:0; left:0; right:0;
-      height: 3px;
+      content: ''; position: absolute; top:0; left:0; right:0; height: 3px;
       background: linear-gradient(90deg, var(--teal-500), var(--teal-300));
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.4s;
+      transform: scaleX(0); transform-origin: left; transition: transform 0.4s;
     }
     .step-card:hover::before { transform: scaleX(1); }
-    .step-card:hover {
-      box-shadow: var(--shadow-lg);
-      transform: translateY(-4px);
-    }
-    .step-num {
-      font-family: var(--font-display);
-      font-size: 3.5rem;
-      color: var(--teal-200);
-      line-height: 1;
-      margin-bottom: 16px;
-    }
-    .step-card h3 {
-      font-family: var(--font-display);
-      font-size: 1.4rem;
-      color: var(--teal-900);
-      margin-bottom: 12px;
-    }
-    .step-card p {
-      font-size: 0.92rem;
-      color: var(--gray-500);
-      line-height: 1.7;
-    }
-    .step-icon {
-      width: 56px; height: 56px;
-      border-radius: 16px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.6rem;
-      margin-bottom: 20px;
-      background: var(--teal-50);
-    }
+    .step-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); }
+    .step-num { font-family: var(--font-display); font-size: 3.5rem; color: var(--teal-200); line-height: 1; margin-bottom: 16px; }
+    .step-card h3 { font-family: var(--font-display); font-size: 1.4rem; color: var(--teal-900); margin-bottom: 12px; }
+    .step-card p { font-size: 0.92rem; color: var(--gray-500); line-height: 1.7; }
+    .step-icon { width: 56px; height: 56px; border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 1.6rem; margin-bottom: 20px; background: var(--teal-50); }
 
-    /* ═══════════════════════════════════════════
-       FEATURES
-    ═══════════════════════════════════════════ */
-    .features {
-      background: white;
-    }
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 24px;
-      margin-top: 60px;
-    }
+    /* ═══ FEATURES ═══ */
+    .features { background: white; }
+    .features-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: 60px; }
     .feature-card {
-      padding: 36px;
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--gray-100);
-      background: var(--gray-50);
-      transition: all 0.3s;
-      display: flex;
-      gap: 20px;
+      padding: 36px; border-radius: var(--radius-lg); border: 1px solid var(--gray-100);
+      background: var(--gray-50); transition: all 0.3s; display: flex; gap: 20px;
     }
-    .feature-card:hover {
-      background: white;
-      box-shadow: var(--shadow-md);
-      border-color: var(--teal-200);
-    }
+    .feature-card:hover { background: white; box-shadow: var(--shadow-md); border-color: var(--teal-200); }
     .feature-icon {
-      flex-shrink:0;
-      width: 52px; height: 52px;
-      border-radius: 14px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.4rem;
-      background: var(--teal-100);
+      flex-shrink:0; width: 52px; height: 52px; border-radius: 14px;
+      display: flex; align-items: center; justify-content: center; font-size: 1.4rem; background: var(--teal-100);
     }
-    .feature-card h4 {
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: var(--teal-900);
-      margin-bottom: 6px;
-    }
-    .feature-card p {
-      font-size: 0.88rem;
-      color: var(--gray-500);
-      line-height: 1.7;
-    }
+    .feature-card h4 { font-size: 1.05rem; font-weight: 700; color: var(--teal-900); margin-bottom: 6px; }
+    .feature-card p { font-size: 0.88rem; color: var(--gray-500); line-height: 1.7; }
 
-    /* ═══════════════════════════════════════════
-       DEMO VIDEO SECTION
-    ═══════════════════════════════════════════ */
+    /* ═══ DEMO VIDEO ═══ */
     .demo {
       background: linear-gradient(165deg, var(--teal-900) 0%, var(--teal-800) 100%);
-      position: relative;
-      overflow: hidden;
+      position: relative; overflow: hidden;
     }
     .demo::before {
-      content: '';
-      position: absolute;
-      inset: 0;
+      content: ''; position: absolute; inset: 0;
       background: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
-      pointer-events: none;
-      opacity: 0.4;
+      pointer-events: none; opacity: 0.4;
     }
-    .demo-inner {
-      position: relative;
-      z-index: 2;
-      text-align: center;
-    }
+    .demo-inner { position: relative; z-index: 2; text-align: center; }
     .demo .section-label { color: var(--teal-300); }
     .demo .section-label::before { background: var(--teal-400); }
     .demo .section-title { color: white; }
     .demo .section-desc { color: rgba(255,255,255,0.6); margin: 0 auto 48px; }
-    
     .video-wrapper {
-      max-width: 860px;
-      margin: 0 auto;
-      border-radius: var(--radius-xl);
-      overflow: hidden;
-      box-shadow: 0 24px 80px rgba(0,0,0,0.4);
-      position: relative;
-      aspect-ratio: 16/9;
-      background: var(--teal-900);
-      border: 1px solid rgba(255,255,255,0.1);
+      max-width: 860px; margin: 0 auto; border-radius: var(--radius-xl); overflow: hidden;
+      box-shadow: 0 24px 80px rgba(0,0,0,0.4); position: relative; aspect-ratio: 16/9;
+      background: var(--teal-900); border: 1px solid rgba(255,255,255,0.1);
     }
     .video-placeholder {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      position: absolute; inset: 0; display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
       background: linear-gradient(135deg, rgba(11,61,62,0.9), rgba(14,79,81,0.9));
-      cursor: pointer;
-      transition: all 0.3s;
+      cursor: pointer; transition: all 0.3s;
     }
     .video-placeholder:hover { background: linear-gradient(135deg, rgba(11,61,62,0.8), rgba(14,79,81,0.8)); }
     .play-btn {
-      width: 80px; height: 80px;
-      border-radius: 50%;
-      background: var(--coral-500);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 8px 32px rgba(232,97,77,0.4);
-      transition: all 0.3s;
-      margin-bottom: 16px;
+      width: 80px; height: 80px; border-radius: 50%; background: var(--coral-500);
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 8px 32px rgba(232,97,77,0.4); transition: all 0.3s; margin-bottom: 16px;
     }
     .play-btn:hover { transform: scale(1.08); }
     .play-btn svg { width:28px; height:28px; fill:white; margin-left:3px; }
-    .video-label {
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: rgba(255,255,255,0.7);
-    }
+    .video-label { font-size: 0.9rem; font-weight: 600; color: rgba(255,255,255,0.7); }
 
-    /* ═══════════════════════════════════════════
-       PRICING
-    ═══════════════════════════════════════════ */
-    .pricing {
-      background: var(--warm-50);
-    }
+    /* ═══ PRICING ═══ */
+    .pricing { background: var(--warm-50); }
     .pricing-header { text-align:center; margin-bottom:60px; }
     .pricing-header .section-desc { margin:0 auto; }
-    
-    .pricing-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 32px;
-      max-width: 820px;
-      margin: 0 auto;
-    }
+    .pricing-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; max-width: 820px; margin: 0 auto; }
     .price-card {
-      background: white;
-      border-radius: var(--radius-xl);
-      padding: 48px 40px;
-      border: 1px solid var(--gray-100);
-      position: relative;
-      transition: all 0.3s;
+      background: white; border-radius: var(--radius-xl); padding: 48px 40px;
+      border: 1px solid var(--gray-100); position: relative; transition: all 0.3s;
     }
-    .price-card:hover {
-      box-shadow: var(--shadow-lg);
-      transform: translateY(-4px);
-    }
-    .price-card.featured {
-      border-color: var(--teal-500);
-      box-shadow: var(--shadow-lg);
-    }
+    .price-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); }
+    .price-card.featured { border-color: var(--teal-500); box-shadow: var(--shadow-lg); }
     .price-card.featured::before {
-      content: 'En Popüler';
-      position: absolute;
-      top: -12px; left: 50%;
-      transform: translateX(-50%);
-      background: var(--teal-600);
-      color: white;
-      font-size: 0.78rem;
-      font-weight: 700;
-      padding: 4px 20px;
-      border-radius: 100px;
+      content: 'Most Popular'; position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+      background: var(--teal-600); color: white; font-size: 0.78rem; font-weight: 700;
+      padding: 4px 20px; border-radius: 100px;
     }
-    .price-card-label {
-      font-size: 0.82rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      color: var(--teal-600);
-      margin-bottom: 8px;
-    }
-    .price-card h3 {
-      font-family: var(--font-display);
-      font-size: 1.5rem;
-      color: var(--teal-900);
-      margin-bottom: 16px;
-    }
-    .price-amount {
-      display: flex;
-      align-items: baseline;
-      gap: 4px;
-      margin-bottom: 8px;
-    }
+    .price-card-label { font-size: 0.82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: var(--teal-600); margin-bottom: 8px; }
+    .price-card h3 { font-family: var(--font-display); font-size: 1.5rem; color: var(--teal-900); margin-bottom: 16px; }
+    .price-amount { display: flex; align-items: baseline; gap: 4px; margin-bottom: 8px; }
     .price-currency { font-size:1.2rem; font-weight:700; color: var(--teal-800); }
-    .price-number {
-      font-family: var(--font-display);
-      font-size: 3.2rem;
-      color: var(--teal-800);
-      line-height: 1;
-    }
+    .price-number { font-family: var(--font-display); font-size: 3.2rem; color: var(--teal-800); line-height: 1; }
     .price-period { font-size:0.9rem; color: var(--gray-500); }
-    .price-desc {
-      font-size: 0.88rem;
-      color: var(--gray-500);
-      margin-bottom: 28px;
-      line-height: 1.6;
-    }
-    .price-features {
-      list-style: none;
-      margin-bottom: 32px;
-    }
-    .price-features li {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      font-size: 0.9rem;
-      color: var(--gray-700);
-      padding: 8px 0;
-    }
-    .price-features li svg {
-      flex-shrink: 0;
-      width: 18px; height: 18px;
-      color: var(--teal-500);
-      margin-top: 2px;
-    }
+    .price-desc { font-size: 0.88rem; color: var(--gray-500); margin-bottom: 28px; line-height: 1.6; }
+    .price-features { list-style: none; margin-bottom: 32px; }
+    .price-features li { display: flex; align-items: flex-start; gap: 10px; font-size: 0.9rem; color: var(--gray-700); padding: 8px 0; }
+    .price-features li svg { flex-shrink: 0; width: 18px; height: 18px; color: var(--teal-500); margin-top: 2px; }
     .price-btn {
-      display: block;
-      width: 100%;
-      text-align: center;
-      padding: 14px;
-      border-radius: 100px;
-      font-weight: 700;
-      font-size: 0.95rem;
-      transition: all 0.3s;
-      border: 2px solid var(--teal-600);
-      color: var(--teal-700);
-      background: transparent;
-      cursor: pointer;
+      display: block; width: 100%; text-align: center; padding: 14px; border-radius: 100px;
+      font-weight: 700; font-size: 0.95rem; transition: all 0.3s;
+      border: 2px solid var(--teal-600); color: var(--teal-700); background: transparent; cursor: pointer;
     }
-    .price-btn:hover {
-      background: var(--teal-600);
-      color: white;
-    }
-    .price-btn.filled {
-      background: var(--teal-600);
-      color: white;
-      border-color: var(--teal-600);
-    }
-    .price-btn.filled:hover {
-      background: var(--teal-700);
-      border-color: var(--teal-700);
-    }
+    .price-btn:hover { background: var(--teal-600); color: white; }
+    .price-btn.filled { background: var(--teal-600); color: white; border-color: var(--teal-600); }
+    .price-btn.filled:hover { background: var(--teal-700); border-color: var(--teal-700); }
 
-    /* ═══════════════════════════════════════════
-       TECHNOLOGY
-    ═══════════════════════════════════════════ */
-    .tech {
-      background: white;
-    }
-    .tech-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: center;
-      margin-top: 60px;
-    }
-    .tech-visual {
-      background: var(--teal-50);
-      border-radius: var(--radius-xl);
-      padding: 48px;
-      border: 1px solid var(--teal-100);
-    }
-    .tech-stack-item {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      padding: 16px 0;
-      border-bottom: 1px solid var(--teal-100);
-    }
+    /* ═══ TECHNOLOGY ═══ */
+    .tech { background: white; }
+    .tech-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; margin-top: 60px; }
+    .tech-visual { background: var(--teal-50); border-radius: var(--radius-xl); padding: 48px; border: 1px solid var(--teal-100); }
+    .tech-stack-item { display: flex; align-items: center; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--teal-100); }
     .tech-stack-item:last-child { border:none; }
-    .tech-stack-icon {
-      width: 44px; height: 44px;
-      border-radius: 12px;
-      background: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.2rem;
-      box-shadow: var(--shadow-sm);
-    }
-    .tech-stack-item strong {
-      font-size: 0.92rem;
-      color: var(--teal-900);
-    }
-    .tech-stack-item span {
-      font-size: 0.82rem;
-      color: var(--gray-500);
-      display: block;
-    }
+    .tech-stack-icon { width: 44px; height: 44px; border-radius: 12px; background: white; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; box-shadow: var(--shadow-sm); }
+    .tech-stack-item strong { font-size: 0.92rem; color: var(--teal-900); }
+    .tech-stack-item span { font-size: 0.82rem; color: var(--gray-500); display: block; }
 
-    /* ═══════════════════════════════════════════
-       TESTIMONIAL / EMOTIONAL
-    ═══════════════════════════════════════════ */
-    .emotional {
-      background: var(--teal-50);
-      text-align: center;
-      padding: 100px 0;
-    }
-    .emotional-quote {
-      font-family: var(--font-display);
-      font-size: 2.2rem;
-      font-style: italic;
-      color: var(--teal-900);
-      max-width: 800px;
-      margin: 0 auto 24px;
-      line-height: 1.4;
-    }
-    .emotional-author {
-      font-size: 0.95rem;
-      color: var(--gray-500);
-    }
+    /* ═══ EMOTIONAL ═══ */
+    .emotional { background: var(--teal-50); text-align: center; padding: 100px 0; }
+    .emotional-quote { font-family: var(--font-display); font-size: 2.2rem; font-style: italic; color: var(--teal-900); max-width: 800px; margin: 0 auto 24px; line-height: 1.4; }
+    .emotional-author { font-size: 0.95rem; color: var(--gray-500); }
 
-    /* ═══════════════════════════════════════════
-       TEAM SECTION
-    ═══════════════════════════════════════════ */
-    .team {
-      background: var(--warm-50);
-    }
+    /* ═══ TEAM ═══ */
+    .team { background: var(--warm-50); }
     .team-header { text-align:center; margin-bottom:60px; }
     .team-header .section-desc { margin:0 auto; }
-    .team-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 32px;
-      max-width: 920px;
-      margin: 0 auto;
-    }
+    .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; max-width: 920px; margin: 0 auto; }
     .team-card {
-      text-align: center;
-      padding: 40px 24px;
-      background: white;
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--gray-100);
-      transition: all 0.3s;
+      text-align: center; padding: 40px 24px; background: white;
+      border-radius: var(--radius-lg); border: 1px solid var(--gray-100); transition: all 0.3s;
     }
-    .team-card:hover {
-      box-shadow: var(--shadow-md);
-      transform: translateY(-4px);
-    }
+    .team-card:hover { box-shadow: var(--shadow-md); transform: translateY(-4px); }
     .team-avatar {
-      width: 80px; height: 80px;
-      border-radius: 50%;
-      margin: 0 auto 16px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2rem;
-      font-weight: 700;
-      color: white;
+      width: 80px; height: 80px; border-radius: 50%; margin: 0 auto 16px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2rem; font-weight: 700; color: white;
     }
     .team-card:nth-child(1) .team-avatar { background: var(--teal-600); }
     .team-card:nth-child(2) .team-avatar { background: var(--coral-500); }
     .team-card:nth-child(3) .team-avatar { background: var(--teal-400); }
-    .team-card h4 {
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: var(--teal-900);
-      margin-bottom: 4px;
+    .team-card h4 { font-size: 1.05rem; font-weight: 700; color: var(--teal-900); margin-bottom: 4px; }
+    .team-role { font-size: 0.82rem; font-weight: 600; color: var(--teal-600); margin-bottom: 12px; }
+    .team-card p { font-size: 0.85rem; color: var(--gray-500); line-height: 1.6; }
+    .team-linkedin {
+      display: inline-flex; align-items: center; gap: 6px; margin-top: 12px;
+      font-size: 0.8rem; font-weight: 600; color: var(--teal-600); transition: color 0.3s;
     }
-    .team-role {
-      font-size: 0.82rem;
-      font-weight: 600;
-      color: var(--teal-600);
-      margin-bottom: 12px;
-    }
-    .team-card p {
-      font-size: 0.85rem;
-      color: var(--gray-500);
-      line-height: 1.6;
-    }
+    .team-linkedin:hover { color: var(--teal-800); }
+    .team-linkedin svg { width:16px; height:16px; }
 
-    /* ═══════════════════════════════════════════
-       CTA SECTION
-    ═══════════════════════════════════════════ */
+    /* ═══ CTA ═══ */
     .cta {
       background: linear-gradient(165deg, var(--teal-900), var(--teal-800));
-      padding: 100px 0;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
+      padding: 100px 0; text-align: center; position: relative; overflow: hidden;
     }
-    .cta::before {
-      content: '';
-      position: absolute;
-      width: 500px; height: 500px;
-      border-radius: 50%;
-      border: 1px solid rgba(26,180,184,0.08);
-      top: -200px; right: -100px;
-    }
+    .cta::before { content: ''; position: absolute; width: 500px; height: 500px; border-radius: 50%; border: 1px solid rgba(26,180,184,0.08); top: -200px; right: -100px; }
     .cta-inner { position: relative; z-index:2; }
     .cta .section-title { color: white; margin-bottom: 16px; }
-    .cta-desc {
-      font-size: 1.1rem;
-      color: rgba(255,255,255,0.6);
-      max-width: 560px;
-      margin: 0 auto 40px;
-      line-height: 1.8;
-    }
+    .cta-desc { font-size: 1.1rem; color: rgba(255,255,255,0.6); max-width: 560px; margin: 0 auto 40px; line-height: 1.8; }
 
-    /* ═══════════════════════════════════════════
-       CONTACT / FOOTER
-    ═══════════════════════════════════════════ */
-    .contact {
-      background: white;
-    }
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      margin-top: 60px;
-    }
+    /* ═══ CONTACT ═══ */
+    .contact { background: white; }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; margin-top: 60px; }
     .contact-info { display: flex; flex-direction: column; gap: 28px; }
-    .contact-item {
-      display: flex;
-      gap: 16px;
-      align-items: flex-start;
-    }
-    .contact-icon {
-      width: 48px; height: 48px;
-      border-radius: 14px;
-      background: var(--teal-50);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.2rem;
-      flex-shrink: 0;
-    }
-    .contact-item h4 {
-      font-size: 0.95rem;
-      font-weight: 700;
-      color: var(--teal-900);
-      margin-bottom: 2px;
-    }
-    .contact-item p, .contact-item a {
-      font-size: 0.9rem;
-      color: var(--gray-500);
-    }
+    .contact-item { display: flex; gap: 16px; align-items: flex-start; }
+    .contact-icon { width: 48px; height: 48px; border-radius: 14px; background: var(--teal-50); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0; }
+    .contact-item h4 { font-size: 0.95rem; font-weight: 700; color: var(--teal-900); margin-bottom: 2px; }
+    .contact-item p, .contact-item a { font-size: 0.9rem; color: var(--gray-500); }
     .contact-item a:hover { color: var(--teal-600); }
-    
-    .contact-form {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
+    .contact-form { display: flex; flex-direction: column; gap: 16px; }
     .form-row { display: flex; gap: 16px; }
     .form-input {
-      flex: 1;
-      padding: 14px 18px;
-      border: 1px solid var(--gray-200);
-      border-radius: var(--radius-sm);
-      font-family: var(--font-body);
-      font-size: 0.92rem;
-      transition: all 0.3s;
-      background: var(--gray-50);
-      color: var(--gray-800);
+      flex: 1; padding: 14px 18px; border: 1px solid var(--gray-200); border-radius: var(--radius-sm);
+      font-family: var(--font-body); font-size: 0.92rem; transition: all 0.3s;
+      background: var(--gray-50); color: var(--gray-800);
     }
-    .form-input:focus {
-      outline: none;
-      border-color: var(--teal-500);
-      box-shadow: 0 0 0 3px rgba(26,180,184,0.1);
-      background: white;
-    }
-    .form-textarea {
-      resize: vertical;
-      min-height: 120px;
-    }
+    .form-input:focus { outline: none; border-color: var(--teal-500); box-shadow: 0 0 0 3px rgba(26,180,184,0.1); background: white; }
+    .form-textarea { resize: vertical; min-height: 120px; }
     select.form-input {
-      appearance: none;
-      -webkit-appearance: none;
+      appearance: none; -webkit-appearance: none;
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236B7B7C' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: right 14px center;
-      padding-right: 36px;
+      background-repeat: no-repeat; background-position: right 14px center; padding-right: 36px;
     }
     .form-submit {
-      align-self: flex-start;
-      background: var(--teal-700);
-      color: white;
-      padding: 14px 40px;
-      border: none;
-      border-radius: 100px;
-      font-family: var(--font-body);
-      font-weight: 700;
-      font-size: 0.95rem;
-      cursor: pointer;
-      transition: all 0.3s;
-      box-shadow: 0 4px 16px rgba(18,114,117,0.3);
+      align-self: flex-start; background: var(--teal-700); color: white;
+      padding: 14px 40px; border: none; border-radius: 100px;
+      font-family: var(--font-body); font-weight: 700; font-size: 0.95rem;
+      cursor: pointer; transition: all 0.3s; box-shadow: 0 4px 16px rgba(18,114,117,0.3);
     }
-    .form-submit:hover {
-      background: var(--teal-600);
-      transform: translateY(-1px);
-    }
-    
-    .footer {
-      background: var(--gray-900);
-      padding: 48px 0;
-      color: rgba(255,255,255,0.5);
-    }
-    .footer-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 16px;
-    }
-    .footer-logo {
-      font-family: var(--font-display);
-      font-size: 1.3rem;
-      color: white;
-    }
-    .footer-links {
-      display: flex;
-      gap: 24px;
-      list-style: none;
-    }
-    .footer-links a {
-      font-size: 0.85rem;
-      color: rgba(255,255,255,0.5);
-      transition: color 0.3s;
-    }
-    .footer-links a:hover { color: var(--teal-400); }
-    .footer-copy { font-size:0.82rem; }
+    .form-submit:hover { background: var(--teal-600); transform: translateY(-1px); }
+    .form-consent { font-size: 0.78rem; color: var(--gray-500); line-height: 1.6; display: flex; align-items: flex-start; gap: 8px; }
+    .form-consent input[type="checkbox"] { margin-top: 3px; accent-color: var(--teal-600); }
 
-    /* ═══════════════════════════════════════════
-       RESPONSIVE
-    ═══════════════════════════════════════════ */
+    /* ═══ FOOTER ═══ */
+    .footer { background: var(--gray-900); padding: 48px 0 24px; color: rgba(255,255,255,0.5); }
+    .footer-main { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; padding-bottom: 24px; border-bottom: 1px solid rgba(255,255,255,0.08); margin-bottom: 20px; }
+    .footer-logo { font-family: var(--font-display); font-size: 1.3rem; color: white; }
+    .footer-links { display: flex; gap: 24px; list-style: none; }
+    .footer-links a { font-size: 0.85rem; color: rgba(255,255,255,0.5); transition: color 0.3s; }
+    .footer-links a:hover { color: var(--teal-400); }
+    .footer-bottom { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+    .footer-copy { font-size: 0.78rem; }
+    .footer-disclaimer { font-size: 0.72rem; color: rgba(255,255,255,0.35); max-width: 600px; line-height: 1.6; }
+    .footer-legal { display: flex; gap: 20px; }
+    .footer-legal a { font-size: 0.78rem; color: rgba(255,255,255,0.4); transition: color 0.3s; }
+    .footer-legal a:hover { color: var(--teal-400); }
+
+    /* ═══ RESPONSIVE ═══ */
     @media (max-width: 1024px) {
       .hero h1 { font-size: 2.8rem; }
       .hero-content { gap: 40px; }
       .section-title { font-size: 2.2rem; }
     }
-    
     @media (max-width: 768px) {
       .nav-links { display:none; }
       .mobile-toggle { display:block; }
-      
-      .hero-content {
-        grid-template-columns: 1fr;
-        padding: 120px 24px 60px;
-        gap: 40px;
-      }
+      .hero-content { grid-template-columns: 1fr; padding: 120px 24px 60px; gap: 40px; }
       .hero h1 { font-size: 2.4rem; }
       .hero-stats { gap: 24px; flex-wrap:wrap; }
       .hero-visual { order: -1; }
-      
-      .problem-grid,
-      .tech-grid,
-      .contact-grid {
-        grid-template-columns: 1fr;
-        gap: 40px;
-      }
-      .steps-grid {
-        grid-template-columns: 1fr;
-      }
-      .features-grid {
-        grid-template-columns: 1fr;
-      }
-      .pricing-grid {
-        grid-template-columns: 1fr;
-        max-width: 420px;
-      }
-      .team-grid {
-        grid-template-columns: 1fr;
-        max-width: 400px;
-        margin: 0 auto;
-      }
+      .problem-grid, .tech-grid, .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+      .steps-grid, .features-grid { grid-template-columns: 1fr; }
+      .pricing-grid { grid-template-columns: 1fr; max-width: 420px; }
+      .team-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
       .form-row { flex-direction: column; }
       .section { padding: 60px 0; }
       .section-title { font-size: 2rem; }
       .emotional-quote { font-size: 1.6rem; }
       .problem-stat-big { font-size: 5rem; }
     }
-    
     @media (max-width: 480px) {
       .hero h1 { font-size: 2rem; }
       .hero-actions { flex-direction: column; width:100%; }
@@ -1252,16 +528,14 @@
         </svg>
         Animora
       </a>
-      
       <ul class="nav-links">
-        <li><a href="#nasil-calisir">Nasıl Çalışır</a></li>
-        <li><a href="#ozellikler">Özellikler</a></li>
+        <li><a href="#how-it-works">How It Works</a></li>
+        <li><a href="#features">Features</a></li>
         <li><a href="#demo">Demo</a></li>
-        <li><a href="#fiyat">Fiyatlandırma</a></li>
-        <li><a href="#iletisim" class="nav-cta">Bize Ulaşın</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#contact" class="nav-cta">Join Pilot</a></li>
       </ul>
-      
-      <button class="mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('mobile-open')" aria-label="Menü">
+      <button class="mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('mobile-open')" aria-label="Menu">
         <span></span><span></span><span></span>
       </button>
     </div>
@@ -1272,85 +546,70 @@
     <div class="hero-circle hero-circle-1"></div>
     <div class="hero-circle hero-circle-2"></div>
     <div class="hero-circle hero-circle-3"></div>
-    
     <div class="hero-content">
       <div class="hero-text">
         <div class="hero-badge">
           <span class="hero-badge-dot"></span>
-          Edge AI &bull; Privacy-First &bull; Kamerasız
+          Edge AI &bull; Privacy-First &bull; Camera-Free
         </div>
-        <h1>Anneniz <em>Güvende</em>,<br>Mahremiyeti <em>Korunuyor</em></h1>
+        <h1>Your Parent is <em>Safe</em>,<br>Their Privacy <em>Intact</em></h1>
         <p class="hero-sub">
-          Görünmez sensörler ve yapay zeka ile yaşlı ebeveynlerinizin günlük rutinini öğreniyoruz. 
-          Bir anormallik olduğunda sizi anında bilgilendiriyoruz. Kamera yok. Mikrofon yok. Sadece huzur.
+          Invisible sensors and Edge AI learn your parent's daily routine. 
+          When something is off, you're notified instantly. No cameras. No microphones. Just peace of mind.
         </p>
         <div class="hero-actions">
-          <a href="#iletisim" class="btn-primary">
+          <a href="#contact" class="btn-primary">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            Pilot Programa Katılın
+            Join the Pilot Program
           </a>
           <a href="#demo" class="btn-secondary">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
-            Demo İzle
+            Watch Demo
           </a>
         </div>
         <div class="hero-stats">
           <div>
             <div class="hero-stat-num">313</div>
-            <div class="hero-stat-label">Otomatik Test</div>
+            <div class="hero-stat-label">Automated Tests</div>
           </div>
           <div>
             <div class="hero-stat-num">16</div>
-            <div class="hero-stat-label">Geliştirme Sprinti</div>
+            <div class="hero-stat-label">Dev Sprints</div>
           </div>
           <div>
             <div class="hero-stat-num">&lt;$90</div>
-            <div class="hero-stat-label">Donanım Maliyeti</div>
+            <div class="hero-stat-label">Hardware Cost</div>
           </div>
         </div>
       </div>
-      
       <div class="hero-visual">
         <div class="floor-plan-card">
-          <!-- Simplified floor plan SVG -->
           <svg class="floor-plan-svg" viewBox="0 0 400 320" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <!-- Outer walls -->
             <rect x="20" y="20" width="360" height="280" rx="4" stroke="rgba(255,255,255,0.2)" stroke-width="2" fill="rgba(255,255,255,0.03)"/>
-            <!-- Room dividers -->
             <line x1="200" y1="20" x2="200" y2="180" stroke="rgba(255,255,255,0.12)" stroke-width="1.5"/>
             <line x1="20" y1="180" x2="380" y2="180" stroke="rgba(255,255,255,0.12)" stroke-width="1.5"/>
             <line x1="200" y1="180" x2="200" y2="300" stroke="rgba(255,255,255,0.12)" stroke-width="1.5"/>
-            <!-- Door gaps -->
             <line x1="160" y1="180" x2="180" y2="180" stroke="rgba(11,61,62,1)" stroke-width="3"/>
             <line x1="200" y1="220" x2="200" y2="250" stroke="rgba(11,61,62,1)" stroke-width="3"/>
             <line x1="220" y1="180" x2="240" y2="180" stroke="rgba(11,61,62,1)" stroke-width="3"/>
-            <!-- Room icons -->
-            <!-- Bedroom: bed -->
             <rect x="55" y="60" width="60" height="35" rx="3" stroke="rgba(255,255,255,0.15)" fill="rgba(255,255,255,0.03)"/>
             <rect x="60" y="55" width="20" height="10" rx="2" fill="rgba(255,255,255,0.08)"/>
-            <!-- Kitchen: counter -->
             <rect x="250" y="40" width="100" height="15" rx="2" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.12)"/>
             <circle cx="275" cy="75" r="10" stroke="rgba(255,255,255,0.1)" fill="none"/>
             <circle cx="310" cy="75" r="10" stroke="rgba(255,255,255,0.1)" fill="none"/>
-            <!-- Bathroom: tub -->
             <rect x="45" y="210" width="55" height="30" rx="14" stroke="rgba(255,255,255,0.12)" fill="rgba(255,255,255,0.03)"/>
-            <!-- Living room: sofa -->
             <rect x="255" y="225" width="80" height="30" rx="6" stroke="rgba(255,255,255,0.12)" fill="rgba(255,255,255,0.03)"/>
             <rect x="260" y="260" width="30" height="20" rx="4" stroke="rgba(255,255,255,0.08)" fill="none"/>
           </svg>
-          
-          <!-- Sensor dots -->
-          <div class="sensor-dot sd-1" title="Yatak Odası Sensörü"></div>
-          <div class="sensor-dot sd-2" title="Mutfak Sensörü"></div>
-          <div class="sensor-dot sd-3" title="Banyo Sensörü"></div>
-          <div class="sensor-dot sd-4" title="Salon Sensörü"></div>
+          <div class="sensor-dot sd-1" title="Bedroom Sensor"></div>
+          <div class="sensor-dot sd-2" title="Kitchen Sensor"></div>
+          <div class="sensor-dot sd-3" title="Bathroom Sensor"></div>
+          <div class="sensor-dot sd-4" title="Living Room Sensor"></div>
           <div class="sd-hub" title="AI Hub"></div>
-          
-          <!-- Room labels -->
-          <span class="fp-room-label fp-bedroom">Yatak Odası</span>
-          <span class="fp-room-label fp-kitchen">Mutfak</span>
-          <span class="fp-room-label fp-bathroom">Banyo</span>
-          <span class="fp-room-label fp-living">Salon</span>
+          <span class="fp-room-label fp-bedroom">Bedroom</span>
+          <span class="fp-room-label fp-kitchen">Kitchen</span>
+          <span class="fp-room-label fp-bathroom">Bathroom</span>
+          <span class="fp-room-label fp-living">Living Room</span>
         </div>
       </div>
     </div>
@@ -1361,19 +620,19 @@
     <div class="trust-inner">
       <div class="trust-item">
         <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
-        Kamera & Mikrofon Yok
+        Zero Cameras & Microphones
       </div>
       <div class="trust-item">
         <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        KVKK & GDPR Odaklı Tasarım
+        GDPR-Focused Architecture
       </div>
       <div class="trust-item">
         <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-        313 Otomatik Test
+        313 Automated Tests
       </div>
       <div class="trust-item">
         <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-        Edge AI — Veri Evden Çıkmaz
+        Edge AI — Data Never Leaves Home
       </div>
     </div>
   </div>
@@ -1381,47 +640,45 @@
   <!-- ═══════════ PROBLEM ═══════════ -->
   <section class="section problem" id="problem">
     <div class="container">
-      <span class="section-label">Problem</span>
-      <h2 class="section-title">Her gece aynı endişe:<br>"Annem iyi mi?"</h2>
-      <p class="section-desc">Mevcut çözümler korkunç bir seçim dayatıyor — ya kameralarla mahremiyeti ihlal edin, ya da endişeyle yaşayın.</p>
-      
+      <span class="section-label">The Problem</span>
+      <h2 class="section-title">Every night, the same worry:<br>"Is Mom okay?"</h2>
+      <p class="section-desc">Current solutions force a terrible choice — invade your parent's privacy with cameras, or live with constant anxiety.</p>
       <div class="problem-grid">
         <div class="problem-cards">
           <div class="problem-card anim-fadeup">
             <div class="problem-card-icon red">📹</div>
             <div>
-              <h4>Kameralar: Hapishane Hissi</h4>
-              <p>Yaşlılar evlerinde gözetim altında hissediyor. Üstelik düşmelerin %60'ının yaşandığı banyoya kamera koyamazsınız.</p>
+              <h4>Cameras Feel Like Surveillance</h4>
+              <p>Elderly parents feel watched in their own home. And you can't place cameras in bathrooms — where 60% of falls happen.</p>
             </div>
           </div>
           <div class="problem-card anim-fadeup" style="transition-delay:0.1s">
             <div class="problem-card-icon red">⌚</div>
             <div>
-              <h4>Akıllı Saatler: 3 Ayda Terk</h4>
-              <p>75 yaş üzerinin %85'i akıllı saat takmıyor. Takanlar şarj ve bilişsel engeller nedeniyle 3 ayda bırakıyor.</p>
+              <h4>Smartwatches: Abandoned in 3 Months</h4>
+              <p>85% of adults over 75 don't wear smartwatches. Those who do quit within 3 months due to charging and cognitive barriers.</p>
             </div>
           </div>
           <div class="problem-card anim-fadeup" style="transition-delay:0.2s">
             <div class="problem-card-icon red">🔘</div>
             <div>
-              <h4>Panik Butonları: Stigma</h4>
-              <p>Ebeveynlerimiz yaşlandıklarını kabul etmek istemiyor. Panik butonunu takmayı reddediyor. Düşünce gibi acillerde zaten basılamıyor.</p>
+              <h4>Panic Buttons: Stigma & Failure</h4>
+              <p>Parents refuse to wear them — it means admitting they're "old." And in a real emergency like a fall, they can't press it anyway.</p>
             </div>
           </div>
           <div class="problem-card anim-fadeup" style="transition-delay:0.3s">
             <div class="problem-card-icon red">☁️</div>
             <div>
-              <h4>Bulut Sistemleri: Veri Riski</h4>
-              <p>Kişisel yaşam verileri uzak sunuculara aktarılıyor. KVKK/GDPR ihlalleri ve veri sızıntısı riskleri büyük.</p>
+              <h4>Cloud Systems: Data at Risk</h4>
+              <p>Personal living data sent to remote servers creates GDPR compliance risks and potential data breach exposure.</p>
             </div>
           </div>
         </div>
-        
         <div class="problem-visual anim-slideleft">
           <div class="problem-stat-big">1.4B</div>
           <div class="problem-stat-overlay">
-            <h3>1.4 Milyar</h3>
-            <p>2030 tahmini 60+ yaş dünya nüfusu*<br><strong style="color:var(--coral-500)">Büyük çoğunluğu yalnız yaşıyor</strong></p>
+            <h3>1.4 Billion</h3>
+            <p>People aged 60+ worldwide by 2030*<br><strong style="color:var(--coral-500)">The majority live alone</strong></p>
             <p style="font-size:0.7rem;color:var(--gray-300);margin-top:8px;">*UN World Population Prospects, WHO Global Report on Ageing</p>
           </div>
         </div>
@@ -1429,86 +686,84 @@
     </div>
   </section>
 
-  <!-- ═══════════ SOLUTION — HOW IT WORKS ═══════════ -->
-  <section class="section solution" id="nasil-calisir">
+  <!-- ═══════════ HOW IT WORKS ═══════════ -->
+  <section class="section solution" id="how-it-works">
     <div class="container">
       <div class="solution-header">
-        <span class="section-label">Nasıl Çalışır</span>
-        <h2 class="section-title">Üç adımda huzur</h2>
-        <p class="section-desc">Kurulum 30 dakika. Öğrenme 14 gün. Sonrası tamamen otomatik — siz sadece huzur içinde yaşayın.</p>
+        <span class="section-label">How It Works</span>
+        <h2 class="section-title">Peace of mind in three steps</h2>
+        <p class="section-desc">Installation takes 30 minutes. Learning takes 14 days. After that, everything is fully automatic.</p>
       </div>
-      
       <div class="steps-grid">
         <div class="step-card anim-fadeup">
           <div class="step-icon">🏠</div>
           <div class="step-num">01</div>
-          <h3>Sensörleri Yerleştirin</h3>
-          <p>Kapı, hareket ve yatak sensörlerini odaların stratejik noktalarına yerleştirin. Kablo yok, vida yok — yapışkan bantla montaj. 2 yıl pil ömrü.</p>
+          <h3>Place the Sensors</h3>
+          <p>Attach tiny door, motion, and bed sensors to strategic spots. No wires, no screws — adhesive mounting. 2-year battery life.</p>
         </div>
         <div class="step-card anim-fadeup" style="transition-delay:0.15s">
           <div class="step-icon">🧠</div>
           <div class="step-num">02</div>
-          <h3>AI Rutini Öğrensin</h3>
-          <p>Edge AI, ebeveynlerinizin benzersiz günlük rutinini 14 günde öğrenir. Sabah kaçta kalkıyor? Banyoda ne kadar kalıyor? Her şey kişisel.</p>
+          <h3>AI Learns the Routine</h3>
+          <p>Our Edge AI learns your parent's unique daily pattern in 14 days. What time do they wake up? How long in the bathroom? Everything is personalized.</p>
         </div>
         <div class="step-card anim-fadeup" style="transition-delay:0.3s">
           <div class="step-icon">🔔</div>
           <div class="step-num">03</div>
-          <h3>Anormalde Bilgilenin</h3>
-          <p>Rutin dışı bir durum tespit edildiğinde Telegram ile anında bildirim alın. 3 kademeli alarm: nazik hatırlatma, ciddi uyarı, acil SOS.</p>
+          <h3>Get Alerted on Anomalies</h3>
+          <p>When something deviates from the routine, you're notified via Telegram instantly. 3-tier alerts: gentle reminder, serious warning, emergency SOS.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ═══════════ FEATURES ═══════════ -->
-  <section class="section features" id="ozellikler">
+  <section class="section features" id="features">
     <div class="container">
-      <span class="section-label">Özellikler</span>
-      <h2 class="section-title">Gizlilik öncelikli, akıllı koruma</h2>
-      <p class="section-desc">Her özellik mahremiyeti koruyarak tasarlandı. Veri evden çıkmaz, kamera asla kullanılmaz.</p>
-      
+      <span class="section-label">Features</span>
+      <h2 class="section-title">Privacy-first, intelligent protection</h2>
+      <p class="section-desc">Every feature is designed to protect dignity while keeping families informed. Data never leaves the home.</p>
       <div class="features-grid">
         <div class="feature-card anim-fadeup">
           <div class="feature-icon">🔒</div>
           <div>
-            <h4>Sıfır Kamera Mimarisi</h4>
-            <p>Tüm algılama kapı kontaklarında, hareket sensörlerinde ve yatak titreşim sensörlerinde gerçekleşir. Görüntü kaydı fiziksel olarak imkansız.</p>
+            <h4>Zero-Camera Architecture</h4>
+            <p>All detection uses door contacts, motion sensors, and bed vibration sensors. Image capture is physically impossible.</p>
           </div>
         </div>
         <div class="feature-card anim-fadeup" style="transition-delay:0.1s">
           <div class="feature-icon">📊</div>
           <div>
-            <h4>Bayesian Rutin Öğrenme</h4>
-            <p>Beta-Binomial model 14 günde kişiye özel rutin öğrenir. Anneniz her gece 3'te su içiyorsa, sistem bunu "normal" kabul eder.</p>
+            <h4>Bayesian Routine Learning</h4>
+            <p>Our Beta-Binomial model learns personalized routines in 14 days. If your mom always gets water at 3 AM, the system knows it's normal.</p>
           </div>
         </div>
         <div class="feature-card anim-fadeup" style="transition-delay:0.15s">
           <div class="feature-icon">🚨</div>
           <div>
-            <h4>3 Kademeli Akıllı Alarm</h4>
-            <p>Nazik hatırlatma → Ciddi uyarı → Acil SOS eskalasyonu. "Gördüm" butonu ile 10 dakika yanıt yoksa otomatik SOS.</p>
+            <h4>3-Tier Smart Escalation</h4>
+            <p>Gentle reminder → Serious warning → Emergency SOS. "Acknowledged" button gives 10 minutes; no response triggers automatic SOS to backup contacts.</p>
           </div>
         </div>
         <div class="feature-card anim-fadeup" style="transition-delay:0.2s">
           <div class="feature-icon">🏠</div>
           <div>
-            <h4>Sensör Füzyonu</h4>
-            <p>Tek sensöre güvenmiyoruz. Kapı + hareket + yatak verilerini birleştirerek çift tetikleme ile yanlış alarmları ortadan kaldırıyoruz.</p>
+            <h4>Sensor Fusion</h4>
+            <p>We never rely on a single sensor. Door + motion + bed data are combined with dual-trigger logic to eliminate false alarms.</p>
           </div>
         </div>
         <div class="feature-card anim-fadeup" style="transition-delay:0.25s">
           <div class="feature-icon">🌙</div>
           <div>
-            <h4>Misafir & Tatil Modu</h4>
-            <p>Telegram'dan tek tuşla aktif edin. Misafir günlerinin verileri istatistiksel modele dahil edilmez. Uzun vadeli trendler korunur.</p>
+            <h4>Guest & Holiday Mode</h4>
+            <p>Toggle with one tap via Telegram. Guest days are excluded from statistical learning. Long-term health trends stay clean.</p>
           </div>
         </div>
         <div class="feature-card anim-fadeup" style="transition-delay:0.3s">
           <div class="feature-icon">💓</div>
           <div>
-            <h4>Watchdog — Bağlantı İzleme</h4>
-            <p>Elektrik veya internet kesildiğinde 5 dakika içinde "Bağlantı koptu, kontrol edin" bildirimi. Asla kör noktada kalmazsınız.</p>
+            <h4>Watchdog — Connection Monitor</h4>
+            <p>If power or internet is lost, you receive a "Connection lost — please check" alert within 5 minutes. Never a blind spot.</p>
           </div>
         </div>
       </div>
@@ -1518,86 +773,65 @@
   <!-- ═══════════ EMOTIONAL QUOTE ═══════════ -->
   <section class="emotional">
     <div class="container">
-      <p class="emotional-quote anim-fadeup">"Gözetim devrini bitiriyoruz.<br>Şefkatli yapay zeka devrini başlatıyoruz."</p>
-      <p class="emotional-author anim-fadeup" style="transition-delay:0.15s">— Animora Vizyonu &bull; Kamera Yok. Saat Yok. Mahremiyet Var.</p>
+      <p class="emotional-quote anim-fadeup">"We're ending the age of surveillance.<br>We're starting the age of compassionate AI."</p>
+      <p class="emotional-author anim-fadeup" style="transition-delay:0.15s">— The Animora Vision &bull; No Cameras. No Wearables. Just Care.</p>
     </div>
   </section>
 
-  <!-- ═══════════ DEMO VIDEO ═══════════ -->
+  <!-- ═══════════ DEMO ═══════════ -->
   <section class="section demo" id="demo">
     <div class="container demo-inner">
       <span class="section-label">Demo</span>
-      <h2 class="section-title">Animora'yı Çalışırken Görün</h2>
-      <p class="section-desc">93 saniyelik tanıtım videomuzda Edge AI'ın sensör verilerini nasıl işlediğini, rutinin nasıl öğrenildiğini ve alarm eskalasyonunun nasıl çalıştığını izleyin.</p>
-      
+      <h2 class="section-title">See Animora in Action</h2>
+      <p class="section-desc">Watch how Edge AI processes sensor data, learns daily routines, and handles alert escalation — all in 90 seconds.</p>
       <div class="video-wrapper">
         <div class="video-placeholder" id="videoPlaceholder">
           <div class="play-btn">
             <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
           </div>
-          <span class="video-label">Tanıtım Videosu — 1:33</span>
+          <span class="video-label">Product Demo — 1:33</span>
         </div>
-        <!-- Replace src with actual video URL -->
-        <!-- <iframe id="demoVideo" width="100%" height="100%" src="" frameborder="0" allowfullscreen style="position:absolute;inset:0;"></iframe> -->
       </div>
     </div>
   </section>
 
   <!-- ═══════════ TECHNOLOGY ═══════════ -->
-  <section class="section tech" id="teknoloji">
+  <section class="section tech" id="technology">
     <div class="container">
       <div class="tech-grid">
         <div>
-          <span class="section-label">Teknoloji</span>
-          <h2 class="section-title">Üretime hazır altyapı</h2>
-          <p class="section-desc" style="margin-bottom:32px">Konsept değil, çalışan ürün. 313 otomatik test, Docker dağıtımı, bağımsız kod kalite analizlerinde yüksek puanlar.</p>
+          <span class="section-label">Technology</span>
+          <h2 class="section-title">Production-ready infrastructure</h2>
+          <p class="section-desc" style="margin-bottom:32px">Not a concept — a working product. 313 automated tests, Docker deployment, consistently high scores in independent code quality analyses.</p>
           <p style="font-size:0.92rem; color:var(--gray-500); line-height:1.8;">
-            Tüm veri işleme evinizde, Raspberry Pi üzerinde gerçekleşir. Buluta sadece anonim alarm bildirimleri gönderilir. 
-            Ham sensör verileri asla evinizden çıkmaz — bu KVKK ve GDPR uyumluluğunu tasarımdan itibaren garanti eder.
+            All data processing happens locally on a Raspberry Pi inside your parent's home. Only anonymized alert notifications are sent to the cloud. 
+            Raw sensor data never leaves the premises — ensuring GDPR compliance by design.
           </p>
         </div>
         <div class="tech-visual anim-slideleft">
           <div class="tech-stack-item">
             <div class="tech-stack-icon">🔧</div>
-            <div>
-              <strong>Raspberry Pi 4/5</strong>
-              <span>Yerel Edge AI işlem merkezi</span>
-            </div>
+            <div><strong>Raspberry Pi 4/5</strong><span>Local Edge AI processing hub</span></div>
           </div>
           <div class="tech-stack-item">
             <div class="tech-stack-icon">📡</div>
-            <div>
-              <strong>Zigbee Sensör Ağı</strong>
-              <span>Düşük güç, 2 yıl pil ömrü, güvenli iletişim</span>
-            </div>
+            <div><strong>Zigbee Sensor Network</strong><span>Low-power, 2-year battery, secure mesh</span></div>
           </div>
           <div class="tech-stack-item">
             <div class="tech-stack-icon">🏡</div>
-            <div>
-              <strong>Home Assistant</strong>
-              <span>Otomasyon ve sensör yönetim platformu</span>
-            </div>
+            <div><strong>Home Assistant Core</strong><span>Automation & sensor management</span></div>
           </div>
           <div class="tech-stack-item">
             <div class="tech-stack-icon">🐳</div>
-            <div>
-              <strong>Docker Konteyner</strong>
-              <span>Tek komutla kurulum, izole güvenlik</span>
-            </div>
+            <div><strong>Docker Containers</strong><span>One-command deployment, isolated security</span></div>
           </div>
           <div class="tech-stack-item">
             <div class="tech-stack-icon">📈</div>
-            <div>
-              <strong>Bayesian Beta-Binomial</strong>
-              <span>Kişiye özel rutin öğrenme algoritması</span>
-            </div>
+            <div><strong>Bayesian Beta-Binomial</strong><span>Personalized routine learning algorithm</span></div>
           </div>
           <div class="tech-stack-item">
             <div class="tech-stack-icon">🔐</div>
-            <div>
-              <strong>Non-root Docker + Yerel DB</strong>
-              <span>Siber güvenlik en iyi pratikleri</span>
-            </div>
+            <div><strong>Non-root Docker + Local DB</strong><span>Cybersecurity best practices</span></div>
           </div>
         </div>
       </div>
@@ -1605,112 +839,91 @@
   </section>
 
   <!-- ═══════════ PRICING ═══════════ -->
-  <section class="section pricing" id="fiyat">
+  <section class="section pricing" id="pricing">
     <div class="container">
       <div class="pricing-header">
-        <span class="section-label">Fiyatlandırma</span>
-        <h2 class="section-title">Huzurun fiyatı şeffaf</h2>
-        <p class="section-desc">Gizli ücret yok. Donanım bir kere, yazılım her ay. İlk 50 pilot kullanıcıya özel fiyatlar.</p>
+        <span class="section-label">Pricing</span>
+        <h2 class="section-title">Transparent pricing. No hidden fees.</h2>
+        <p class="section-desc">Hardware once, software monthly. Special pricing for the first 50 pilot households.</p>
       </div>
-      
       <div class="pricing-grid">
         <div class="price-card">
-          <div class="price-card-label">Başlangıç</div>
-          <h3>Donanım Kiti</h3>
+          <div class="price-card-label">Starter</div>
+          <h3>Hardware Kit</h3>
           <div class="price-amount">
             <span class="price-currency">$</span>
             <span class="price-number">99</span>
           </div>
-          <div class="price-desc">Tek seferlik — kargo dahil</div>
+          <div class="price-desc">One-time — shipping included</div>
           <ul class="price-features">
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              Raspberry Pi AI Hub
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              4 Zigbee Sensör (kapı + hareket + yatak)
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              Zigbee USB Dongle
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              30 dakika uzaktan kurulum desteği
-            </li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Raspberry Pi AI Hub</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> 4 Zigbee Sensors (door + motion + bed)</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Zigbee USB Dongle</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> 30-minute remote setup support</li>
           </ul>
-          <a href="#iletisim" class="price-btn" style="display:block;text-align:center;">Ön Sipariş Ver</a>
+          <a href="#contact" class="price-btn" style="display:block;text-align:center;">Pre-Order</a>
         </div>
-        
         <div class="price-card featured">
-          <div class="price-card-label">Abonelik</div>
+          <div class="price-card-label">Subscription</div>
           <h3>Animora Care</h3>
           <div class="price-amount">
             <span class="price-currency">$</span>
             <span class="price-number">12</span>
-            <span class="price-period">/ay</span>
+            <span class="price-period">/mo</span>
           </div>
-          <div class="price-desc">İlk ay ücretsiz deneme</div>
+          <div class="price-desc">First month free trial</div>
           <ul class="price-features">
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              Bayesian rutin öğrenme motoru
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              3 kademeli akıllı alarm sistemi
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              Telegram anlık bildirimler
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              Watchdog bağlantı izleme
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              Misafir/Tatil modu
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              Otomatik yazılım güncellemeleri
-            </li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Bayesian routine learning engine</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> 3-tier smart alert system</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Telegram instant notifications</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Watchdog connection monitor</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Guest & Holiday mode</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Automatic software updates</li>
           </ul>
-          <a href="#iletisim" class="price-btn filled" style="display:block;text-align:center;">Pilot Programa Katıl</a>
+          <a href="#contact" class="price-btn filled" style="display:block;text-align:center;">Join the Pilot</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ═══════════ TEAM ═══════════ -->
-  <section class="section team" id="ekip">
+  <!-- ═══════════ FOUNDING TEAM ═══════════ -->
+  <section class="section team" id="team">
     <div class="container">
       <div class="team-header">
-        <span class="section-label">Ekip</span>
-        <h2 class="section-title">Animora'nın arkasındaki ekip</h2>
-        <p class="section-desc">Yaşlı bakım teknolojisini dönüştürmeye adanmış bir kurucu ekip.</p>
+        <span class="section-label">Founding Team</span>
+        <h2 class="section-title">Built by people who care</h2>
+        <p class="section-desc">A dedicated team transforming elderly care technology with privacy-first engineering.</p>
       </div>
-      
       <div class="team-grid">
         <div class="team-card anim-fadeup">
           <div class="team-avatar">SŞ</div>
           <h4>Serkan Şenalp</h4>
-          <div class="team-role">CEO & Teknik Lider</div>
-          <p>Full-stack geliştirici. Edge AI mimarisi, sensör füzyonu ve Bayesian algoritma tasarımı.</p>
+          <div class="team-role">CEO & Technical Lead</div>
+          <p>Edge AI architecture, IoT sensor fusion, and Bayesian algorithm design.</p>
+          <a href="#" class="team-linkedin" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            LinkedIn
+          </a>
         </div>
         <div class="team-card anim-fadeup" style="transition-delay:0.1s">
           <div class="team-avatar">SZ</div>
           <h4>Senem Zencir Şenalp</h4>
-          <div class="team-role">COO & İş Geliştirme</div>
-          <p>Operasyon, stratejik ortaklıklar ve Avrupa pazarına giriş planlaması.</p>
+          <div class="team-role">COO & Business Development</div>
+          <p>Operations, strategic partnerships, and European market entry.</p>
+          <a href="#" class="team-linkedin" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            LinkedIn
+          </a>
         </div>
         <div class="team-card anim-fadeup" style="transition-delay:0.2s">
           <div class="team-avatar">CÇ</div>
           <h4>Cemre Çiçek</h4>
-          <div class="team-role">Yazılım Mühendisi</div>
-          <p>Backend geliştirme, Docker altyapısı ve CI/CD pipeline yönetimi.</p>
+          <div class="team-role">Software Engineer</div>
+          <p>Backend systems, Docker infrastructure, and CI/CD pipeline.</p>
+          <a href="#" class="team-linkedin" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            LinkedIn
+          </a>
         </div>
       </div>
     </div>
@@ -1719,91 +932,78 @@
   <!-- ═══════════ CTA ═══════════ -->
   <section class="cta">
     <div class="container cta-inner">
-      <h2 class="section-title">İlk 50 pilot hane arasında yerinizi ayırtın</h2>
+      <h2 class="section-title">Secure your spot in the first 50 pilot households</h2>
       <p class="cta-desc">
-        Ebeveynlerinizin güvenliğini mahremiyetlerinden vazgeçmeden sağlayın. 
-        Pilot programa şimdi katılın, ilk ay ücretsiz deneyin.
+        Keep your parent safe without compromising their privacy. 
+        Join the pilot program today — first month free.
       </p>
-      <a href="#iletisim" class="btn-primary" style="margin:0 auto;">
+      <a href="#contact" class="btn-primary" style="margin:0 auto;">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        Hemen Başvurun
+        Apply Now
       </a>
     </div>
   </section>
 
   <!-- ═══════════ CONTACT ═══════════ -->
-  <section class="section contact" id="iletisim">
+  <section class="section contact" id="contact">
     <div class="container">
-      <span class="section-label">Pilot Başvurusu</span>
-      <h2 class="section-title">Pilot programa katılın</h2>
-      <p class="section-desc">İlk 50 hane arasında yerinizi ayırtın. Sorularınız veya iş birliği teklifleriniz için de bize ulaşabilirsiniz.</p>
-      
+      <span class="section-label">Pilot Application</span>
+      <h2 class="section-title">Join the pilot program</h2>
+      <p class="section-desc">Secure your spot among the first 50 households. Questions and partnership inquiries are also welcome.</p>
       <div class="contact-grid">
         <div class="contact-info">
           <div class="contact-item">
             <div class="contact-icon">📧</div>
-            <div>
-              <h4>E-posta</h4>
-              <a href="mailto:hello@animoracare.com">hello@animoracare.com</a>
-            </div>
+            <div><h4>Email</h4><a href="mailto:hello@animoracare.com">hello@animoracare.com</a></div>
           </div>
           <div class="contact-item">
             <div class="contact-icon">💬</div>
-            <div>
-              <h4>Telegram</h4>
-              <a href="https://t.me/animoracare" target="_blank" rel="noopener noreferrer">@animoracare</a>
-            </div>
+            <div><h4>Telegram</h4><a href="https://t.me/animoracare" target="_blank" rel="noopener noreferrer">@animoracare</a></div>
           </div>
           <div class="contact-item">
             <div class="contact-icon">📍</div>
-            <div>
-              <h4>Konum</h4>
-              <p>İstanbul, Türkiye</p>
-            </div>
+            <div><h4>Location</h4><p>Istanbul, Turkey</p></div>
           </div>
           <div class="contact-item">
             <div class="contact-icon">🌐</div>
-            <div>
-              <h4>Web</h4>
-              <a href="https://animoracare.com">animoracare.com</a>
-            </div>
+            <div><h4>Web</h4><a href="https://animoracare.com">animoracare.com</a></div>
           </div>
         </div>
-        
         <form class="contact-form" action="https://api.web3forms.com/submit" method="POST" id="contactForm">
-          <!-- Web3Forms Access Key — animoracare.com için web3forms.com'dan ücretsiz al -->
-          <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
-          <input type="hidden" name="subject" value="Animora Pilot Başvurusu">
+          <input type="hidden" name="access_key" value="BURAYA_KEY_YAPISTIR">
+          <input type="hidden" name="subject" value="Animora Pilot Application">
           <input type="hidden" name="from_name" value="Animora Landing Page">
-          <!-- Honeypot anti-spam -->
           <input type="checkbox" name="botcheck" style="display:none;">
-          
           <div class="form-row">
-            <input type="text" name="name" class="form-input" placeholder="Adınız Soyadınız" required autocomplete="name">
-            <input type="email" name="email" class="form-input" placeholder="E-posta adresiniz" required autocomplete="email">
+            <input type="text" name="name" class="form-input" placeholder="Full Name" required autocomplete="name">
+            <input type="email" name="email" class="form-input" placeholder="Email Address" required autocomplete="email">
           </div>
           <div class="form-row">
-            <input type="tel" name="phone" class="form-input" placeholder="Telefon (isteğe bağlı)" autocomplete="tel">
-            <input type="text" name="city" class="form-input" placeholder="Şehir / Ülke" autocomplete="address-level2">
+            <input type="tel" name="phone" class="form-input" placeholder="Phone (optional)" autocomplete="tel">
+            <input type="text" name="city" class="form-input" placeholder="City / Country" autocomplete="address-level2">
           </div>
           <div class="form-row">
             <select name="living_situation" class="form-input" style="color:var(--gray-500);">
-              <option value="" disabled selected>Ebeveyn durumu</option>
-              <option value="alone">Yalnız yaşıyor</option>
-              <option value="with_spouse">Eşiyle birlikte</option>
-              <option value="with_family">Aile ile birlikte</option>
-              <option value="other">Diğer</option>
+              <option value="" disabled selected>Parent's living situation</option>
+              <option value="alone">Lives alone</option>
+              <option value="with_spouse">With spouse</option>
+              <option value="with_family">With family</option>
+              <option value="other">Other</option>
             </select>
             <select name="pet" class="form-input" style="color:var(--gray-500);">
-              <option value="" disabled selected>Evde evcil hayvan?</option>
-              <option value="no">Hayır</option>
-              <option value="cat">Kedi</option>
-              <option value="dog">Köpek</option>
-              <option value="both">Her ikisi</option>
+              <option value="" disabled selected>Pets at home?</option>
+              <option value="no">No</option>
+              <option value="cat">Cat</option>
+              <option value="dog">Dog</option>
+              <option value="both">Both</option>
             </select>
           </div>
-          <textarea name="message" class="form-input form-textarea" placeholder="Mesajınız veya sorularınız (isteğe bağlı)"></textarea>
-          <button type="submit" class="form-submit" id="submitBtn">Pilot Başvurusu Gönder</button>
+          <textarea name="message" class="form-input form-textarea" placeholder="Your message or questions (optional)"></textarea>
+          <label class="form-consent">
+            <input type="checkbox" name="consent" required>
+            <span>I agree that my data will be used to process this pilot application. See our <a href="#privacy" style="color:var(--teal-600);text-decoration:underline;">Privacy Policy</a>.</span>
+          </label>
+          <button type="submit" class="form-submit" id="submitBtn">Submit Pilot Application</button>
           <p id="formResult" style="font-size:0.85rem;margin-top:8px;display:none;"></p>
         </form>
       </div>
@@ -1812,105 +1012,97 @@
 
   <!-- ═══════════ FOOTER ═══════════ -->
   <footer class="footer">
-    <div class="container footer-inner">
-      <div class="footer-logo">Animora</div>
-      <ul class="footer-links">
-        <li><a href="#nasil-calisir">Nasıl Çalışır</a></li>
-        <li><a href="#ozellikler">Özellikler</a></li>
-        <li><a href="#fiyat">Fiyatlandırma</a></li>
-        <li><a href="#iletisim">İletişim</a></li>
-      </ul>
-      <span class="footer-copy">&copy; 2025 Animora (Annem Güvende). Tüm hakları saklıdır.</span>
+    <div class="container">
+      <div class="footer-main">
+        <div class="footer-logo">Animora</div>
+        <ul class="footer-links">
+          <li><a href="#how-it-works">How It Works</a></li>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-bottom">
+        <span class="footer-copy">&copy; 2025 Animora (Annem G&uuml;vende). All rights reserved.</span>
+        <p class="footer-disclaimer">
+          Animora is a wellbeing monitoring system, not a medical device. It is not intended to diagnose, treat, or prevent any medical condition, 
+          and does not replace emergency services (112/911). Always contact emergency services in life-threatening situations.
+        </p>
+        <div class="footer-legal">
+          <a href="#privacy">Privacy Policy</a>
+          <a href="#terms">Terms of Service</a>
+        </div>
+      </div>
     </div>
   </footer>
 
   <!-- ═══════════ SCRIPTS ═══════════ -->
   <script>
-    // Nav scroll effect
+    // Nav scroll
     const nav = document.getElementById('nav');
-    window.addEventListener('scroll', () => {
-      nav.classList.toggle('scrolled', window.scrollY > 60);
-    });
+    window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 60); });
 
-    // Scroll animations (IntersectionObserver)
+    // Scroll animations
     const animElements = document.querySelectorAll('.anim-fadeup, .anim-slideleft');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
+        if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
       });
     }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
     animElements.forEach(el => observer.observe(el));
 
-    // Smooth scroll for anchor links (skip bare "#")
+    // Smooth scroll (skip bare "#")
     document.querySelectorAll('a[href^="#"]').forEach(link => {
       link.addEventListener('click', e => {
         const href = link.getAttribute('href');
         if (!href || href === '#') return;
         e.preventDefault();
         const target = document.querySelector(href);
-        if (target) {
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          document.querySelector('.nav-links')?.classList.remove('mobile-open');
-        }
+        if (target) { target.scrollIntoView({ behavior: 'smooth', block: 'start' }); document.querySelector('.nav-links')?.classList.remove('mobile-open'); }
       });
     });
 
-    // Video placeholder click
+    // Video placeholder
     const videoPlaceholder = document.getElementById('videoPlaceholder');
     if (videoPlaceholder) {
       videoPlaceholder.addEventListener('click', () => {
-        // TODO: Replace with actual YouTube/Vimeo embed
-        // Example: const iframe = document.createElement('iframe');
-        // iframe.src = 'https://www.youtube-nocookie.com/embed/VIDEO_ID?autoplay=1';
-        // videoPlaceholder.parentElement.appendChild(iframe);
-        // videoPlaceholder.style.display = 'none';
-        alert('Video yakında eklenecek!');
+        // TODO: Replace with YouTube/Vimeo embed
+        alert('Demo video coming soon!');
       });
     }
 
-    // Web3Forms AJAX submit
+    // Web3Forms AJAX
     const form = document.getElementById('contactForm');
     const resultEl = document.getElementById('formResult');
     const submitBtn = document.getElementById('submitBtn');
-    
     if (form) {
       form.addEventListener('submit', async (e) => {
         e.preventDefault();
         submitBtn.disabled = true;
-        submitBtn.textContent = 'Gönderiliyor...';
+        submitBtn.textContent = 'Submitting...';
         resultEl.style.display = 'none';
-        
         try {
           const formData = new FormData(form);
-          const res = await fetch('https://api.web3forms.com/submit', {
-            method: 'POST',
-            body: formData,
-          });
+          const res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: formData });
           const data = await res.json();
-          
           if (data.success) {
-            resultEl.textContent = 'Başvurunuz alındı! En kısa sürede dönüş yapacağız.';
+            resultEl.textContent = 'Application received! We\'ll get back to you shortly.';
             resultEl.style.color = 'var(--teal-600)';
             resultEl.style.display = 'block';
             form.reset();
-          } else {
-            throw new Error(data.message || 'Bir hata oluştu');
-          }
+          } else { throw new Error(data.message || 'Something went wrong'); }
         } catch (err) {
-          resultEl.textContent = 'Gönderim başarısız. Lütfen hello@animoracare.com adresine mail atın.';
+          resultEl.textContent = 'Submission failed. Please email hello@animoracare.com directly.';
           resultEl.style.color = 'var(--coral-500)';
           resultEl.style.display = 'block';
         } finally {
           submitBtn.disabled = false;
-          submitBtn.textContent = 'Pilot Başvurusu Gönder';
+          submitBtn.textContent = 'Submit Pilot Application';
         }
       });
     }
 
-    // Mobile menu styles (injected)
+    // Mobile menu
     const mobileStyle = document.createElement('style');
     mobileStyle.textContent = `
       @media(max-width:768px){
